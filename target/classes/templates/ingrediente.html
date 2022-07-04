@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Raleway:wght@300&display=swap" rel="stylesheet">
+<title>Catering SIW-2022</title>
+<style type="text/css">
+	body{
+		background-image: url("/images/catering.png");
+		font-family: 'Raleway', sans-serif;
+		background-attachment: fixed;
+   } 
+   input{
+	   box-sizing: border-box;
+   }
+   .main-wrapper{
+	   height: 100%;
+	   background-color: rgba(255, 255, 255, 0.90);
+	   width: 50vw;
+		  box-sizing: border-box;
+   }
+    a{
+    text-decoration: none;
+    font-size: larger;
+    margin: 2em;
+    color: black;
+    }
+
+    a:hover{
+    color: gray;
+    }
+</style>
+</head>
+<body>
+<div class="p-4 main-wrapper my-5 m-auto rounded" align="center">
+	<h1 class="border-bottom pb-3">Dettagli ingrediente</h1>
+	<div th:if="${ingrediente}" th:object="${ingrediente}">
+		<div class="mt-4">
+			<strong class="fs-4">Nome: </strong><span class="fs-4"th:text="*{nome}">Nome</span>
+		</div>
+		<div class="mt-4">
+			<strong class="fs-4">Origine: </strong><span class="fs-4"th:text="*{origine}">Origine</span>
+		</div>
+		<div class="my-4">
+			<strong class="fs-4">Descrizione: </strong><span class="fs-4"th:text="*{descrizione}">Descrizione</span>
+		</div>
+	</div>
+	<div th:unless="${ingrediente}">Questo ingrediente non esiste</div>
+	
+	<a class="btn btn-outline-dark mt-4" role = "button" href="/allIngredienti" th:href="@{/allIngredienti}">Elenco ingredienti</a>
+	<a class="btn btn-danger mt-4" role = "button" th:href="@{'/admin/deleteIngrediente'+'/'+${ingrediente.id}}">Elimina ingrediente</a>
+</div>
+</body>
+</html>

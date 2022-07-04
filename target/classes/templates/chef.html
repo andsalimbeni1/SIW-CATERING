@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Raleway:wght@300&display=swap" rel="stylesheet">
+<title>Catering SIW-2022</title>
+<style type="text/css">
+
+	body{
+		background-image: url("/images/catering.png");
+		font-family: 'Raleway', sans-serif;
+		background-attachment: fixed;
+   } 
+   input{
+	   box-sizing: border-box;
+   }
+   .main-wrapper{
+	   height: 100%;
+	   background-color: rgba(255, 255, 255, 0.90);
+	   width: 50vw;
+		  box-sizing: border-box;
+   }
+   
+   a{
+    text-decoration: none;
+    font-size: larger;
+    margin: 2em;
+    color: black;
+    }
+
+    a:hover{
+    color: gray;
+    }
+</style>
+</head>
+<body>
+<div class="p-4 main-wrapper my-5 m-auto rounded" align="center">
+<h1 class="border-bottom pb-3">Dettagli chef</h1>
+	<div th:if="${chef}" th:object="${chef}">
+		<div class="mt-4">
+			<strong class="fs-4">Nome: </strong><span class="fs-4" th:text="*{nome}">Nome</span>
+		</div>
+		<div class="mt-4">
+			<strong class="fs-4">Cognome: </strong><span class="fs-4" th:text="*{cognome}">Cognome</span>
+		</div>
+		<div class="my-4">
+			<strong class="fs-4">Nazionalità: </strong><span class="fs-4" th:text="*{nazionalita}">Nazionalità</span>
+		</div>
+	</div>
+	<div th:unless="${chef}">Questo chef non esiste</div>
+	
+	<a class="btn btn-outline-dark mt-4" role = "button" href="/allChefs" th:href="@{/allChefs}">Elenco chef</a>
+	<a class="btn btn-danger mt-4" role = "button" th:if="${#authorization.expression('hasAuthority(''ADMIN'')')}" th:href="@{'/deleteChef'+'/'+${chef.id}}">Elimina chef</a>
+</div>
+</body>
+</html>

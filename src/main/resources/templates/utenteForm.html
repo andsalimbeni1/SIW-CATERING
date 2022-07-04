@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Raleway:wght@300&display=swap" rel="stylesheet">
+<title>Catering SIW-2022</title>
+<style type="text/css">
+    body{
+    background-image: url("/images/catering.png");
+    background-attachment: fixed;
+    font-family: 'Raleway', sans-serif;
+    }
+
+    .main-wrapper{
+        height: 100%;
+        background-color: rgba(255, 255, 255, 0.90);
+        width: 50vw;
+   	    box-sizing: border-box;
+    }
+
+    input{
+        box-sizing: border-box;
+    }
+    
+    a{
+    text-decoration: none;
+    font-size: larger;
+    margin: 2em;
+    color: black;
+    }
+
+    a:hover{
+    color: gray;
+    }
+
+</style>
+</head>
+<body>
+    <div class="p-4 main-wrapper my-5 m-auto rounded ">
+        <h1 class="border-bottom pb-3">Registrati</h1>
+
+        <form action="#" th:action="@{/register}" method="post" th:object="${utente}">
+
+            <div class="mt-2">
+            <label class="form-label fs-4" >Nome:</label>
+            <input class="form-control" type="text" placeholder = "Nome" th:field="*{nome}"/>
+            <span th:if="${#fields.hasErrors('nome')}" th:errors="*{nome}">Errore nome</span><br/>
+            </div>
+
+            <div class="mt-2">
+            <label class="form-label fs-4" >Cognome:</label>
+            <input class="form-control" type="text" placeholder = "Cognome" th:field="*{cognome}"/>
+            <span th:if="${#fields.hasErrors('cognome')}" th:errors="*{cognome}">Errore cognome</span><br/>
+            </div>
+
+            <div class="mt-2">
+            <label class="form-label fs-4" >Username:</label>
+            <input class="form-control" type="text" placeholder="Username" th:field="*{username}"/>
+            <span th:if="${#fields.hasErrors('username')}" th:errors="*{username}">Errore username</span><br/>
+            </div>
+
+            <div class="mt-2">
+            <label class="form-label fs-4" >E-mail:</label>
+            <input class="form-control" type="text" placeholder="Email" th:field="*{email}"/>
+            <span th:if="${#fields.hasErrors('email')}" th:errors="*{email}">Errore email</span><br/>
+            </div>
+
+            <div class="mt-2">
+            <label class="form-label fs-4" >Password:</label>
+            <input class="form-control" type="password" placeholder ="Password" th:field="*{password}"/>
+            <span th:if="${#fields.hasErrors('password')}" th:errors="*{password}">Errore password</span><br/>
+            </div>
+
+            <div class="my-2">
+            <label class="form-label fs-4" >Data di nascita:</label>
+            <input class="form-control" type="date" th:field="*{birthday}"/>
+            <span th:if="${#fields.hasErrors('birthday')}" th:errors="*{birthday}">Errore Birthday</span><br/>
+            </div>
+            
+            <button class="btn btn-outline-success my-2" type="submit">Registrati</button>
+            
+            <a class="btn btn-outline-dark my-2" role = "button" th:href="@{/index}">Home</a>
+            
+
+        </form>
+    </div>
+</body>

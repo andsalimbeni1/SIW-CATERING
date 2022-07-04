@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Raleway:wght@300&display=swap" rel="stylesheet">
+<title>Catering SIW-2022</title>
+<style type="text/css">
+	body{
+        background-image: url("/images/catering.png");
+		font-family: 'Raleway', sans-serif;
+		background-attachment: fixed;
+    }
+
+	input{
+		box-sizing:border-box;
+	}
+	
+	.main-wrapper{
+        height: 100%;
+        background-color: rgba(255, 255, 255, 0.90);
+        width: 25vw;
+   	    box-sizing: border-box;
+    }
+    
+    a{
+    text-decoration: none;
+    font-size: larger;
+    margin: 2em;
+    color: black;
+    }
+
+    a:hover{
+    color: gray;
+    }
+
+	
+</style>
+</head>
+<body>
+	<div class="p-4 main-wrapper mt-5 m-auto rounded">
+		<h1 class="border-bottom pb-3">Accedi</h1>
+		<form action="#" th:action="@{/login}" method="post">
+			<div class="mt-4">
+			<label class="form-label fs-4">Username:</label>
+			<span><input class="form-control" name = "username" type="text" required/> </span>
+			</div>
+			
+			<br/>
+			
+			<div class="my-4">
+			<label class="form-label fs-4">Password:</label>
+			<span><input class="form-control" name = "password" type="password" required/> </span>
+			</div>
+			
+			
+			<button class="btn btn-outline-success my-4" type="submit">Login</button>
+			<a class="btn btn-outline-dark my-4" role = "button" th:href="@{/index}">Home</a>
+			
+		</form>
+	</div>
+</body>
+</html>

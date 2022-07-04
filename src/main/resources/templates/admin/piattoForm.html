@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Raleway:wght@300&display=swap" rel="stylesheet">
+<title>Catering SIW-2022</title>
+<style type="text/css">
+
+	body {
+	background-image: url("/images/catering.png");
+	background-attachment: fixed;
+	font-family: 'Raleway', sans-serif;
+	}
+
+    .main-wrapper{
+        height: 100%;
+        background-color: rgba(255, 255, 255, 0.90);
+        width: 50vw;
+   	    box-sizing: border-box;
+    }
+
+    input{
+        box-sizing: border-box;
+    }
+    
+    a{
+    text-decoration: none;
+    font-size: larger;
+    margin: 2em;
+    color: black;
+    }
+
+    a:hover{
+    color: gray;
+    }
+	
+</style>
+</head>
+<body>
+	<div class="p-4 main-wrapper my-5 m-auto rounded">
+		<h1 class="border-bottom pb-3">Aggiungi piatto</h1>
+		
+		<form action="#" th:action="@{/admin/piattoForm}" method="post" th:object="${piatto}">
+		
+			<div class="mt-4">
+			<label class="form-label fs-4">Nome:</label>
+			<input class="form-control" type="text" placeholder = "Nome" th:field="*{nome}" required/>
+			<span th:if="${#fields.hasErrors('nome')}" th:errors="{nome}">Errore nome</span><br/>
+			</div>
+			
+			<div class="mt-2">
+			<label class="form-label fs-4">Descrizione:</label>
+			<input class="form-control" type="text" placeholder = "Descrizione" th:field="*{descrizione}" required/>
+			<span th:if="${#fields.hasErrors('descrizione')}" th:errors="{descrizione}">Errore descrizione</span><br/>
+			</div>
+			
+			<div class="mt-2">
+			<label class="form-label fs-4">Ingrediente 1:</label>
+			<select class="form-select" th:object="${ingrediente1}" name="ingrediente1" required>
+				<option th:each="ingrediente1 : ${ingredienti}"
+						th:value="${ingrediente1.id}"
+						th:text="${ingrediente1.nome}">
+			</select>
+			</div>
+			
+			<div class="mt-2">
+			<label class="form-label fs-4">Ingrediente 2:</label>
+			<select class="form-select" th:object="${ingrediente2}" name="ingrediente2" required>
+				<option th:each="ingrediente2 : ${ingredienti}"
+						th:value="${ingrediente2.id}"
+						th:text="${ingrediente2.nome}">
+			</select>
+			</div>
+			
+			<div class="mt-2">
+			<label class="form-label fs-4">Ingrediente 3:</label>
+			<select class="form-select" th:object="${ingrediente3}" name="ingrediente3" required>
+				<option th:each="ingrediente3 : ${ingredienti}"
+						th:value="${ingrediente3.id}"
+						th:text="${ingrediente3.nome}">
+			</select>
+			</div>
+			
+			<div class="my-2">
+			<label class="form-label fs-4">Ingrediente 4:</label>
+			<select class="form-select" th:object="${ingrediente4}" name="ingrediente4" required>
+				<option th:each="ingrediente4 : ${ingredienti}"
+						th:value="${ingrediente4.id}"
+						th:text="${ingrediente4.nome}">
+			</select>
+			</div>
+			
+			<button class="btn btn-outline-success my-4" type="submit">Aggiungi</button>
+			<a class="btn btn-outline-dark my-4" role="button" th:href="@{/allPiatti}">Elenco piatti</a>
+			<a class="btn btn-outline-dark my-4 mx-auto" role = "button" th:href="@{/home}">Home</a>
+		
+		</form>
+		
+	</div>
+</body>
+</html>
