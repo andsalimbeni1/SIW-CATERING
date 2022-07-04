@@ -22,15 +22,6 @@ public class ChefService {
 	public Chef saveChef(Chef chef) {
 		return chefRepository.save(chef);
 	}
-	
-	public Chef editChef(ChefEditDto chefEditDto, Chef chef) {
-		chef.setNome(chefEditDto.getNome());
-		chef.setCognome(chefEditDto.getCognome());
-		chef.setNazionalita(chefEditDto.getNazionalita());
-		chef.setBuffet(chefEditDto.getBuffet());
-		
-		return chefRepository.save(chef);
-	}
 
 	public void deleteChefById(Long id) {
 		chefRepository.deleteById(id);

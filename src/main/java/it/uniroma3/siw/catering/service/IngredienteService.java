@@ -23,14 +23,6 @@ public class IngredienteService {
 		return ingredienteRepository.save(ingrediente);
 	}
 	
-	public Ingrediente editIngrediente(Ingrediente ingrediente, IngredienteEditDto ingredienteEditDto) {
-		ingrediente.setNome(ingredienteEditDto.getNome());
-		ingrediente.setOrigine(ingredienteEditDto.getOrigine());
-		ingrediente.setDescrizione(ingredienteEditDto.getDescrizione());
-		
-		return ingredienteRepository.save(ingrediente);
-	}
-	
 	public void deleteIngredienteById(Long id) {
 		ingredienteRepository.deleteById(id);
 	}
