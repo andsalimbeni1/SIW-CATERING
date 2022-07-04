@@ -9,7 +9,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import it.uniroma3.siw.catering.model.Chef;
-import it.uniroma3.siw.catering.model.dto.ChefEditDto;
 import it.uniroma3.siw.catering.repository.ChefRepository;
 
 @Service
