@@ -46,31 +46,25 @@
 			
 			<div class="mt-2">
 			<label class="form-label fs-4">Nome: </label>
-			<input class="form-control" type="text" th:placeholder = "*{utente.nome}"th:field="*{utenteEdit.nome}" />
+			<input class="form-control" type="text" th:placeholder = "*{utente.nome}"th:field="*{utenteEdit.nome}" required/>
 			<span th:if="${#fields.hasErrors('utenteEdit.nome')}" th:errors="*{utenteEdit.nome}">Errore nome</span><br/>
 			</div>
 			
 			<div class="mt-2">
 			<label class="form-label fs-4">Cognome: </label>
-			<input class="form-control" type="text" th:placeholder = "*{utente.cognome}" th:field="*{utenteEdit.cognome}"/>
+			<input class="form-control" type="text" th:placeholder = "*{utente.cognome}" th:field="*{utenteEdit.cognome}" required/>
 			<span th:if="${#fields.hasErrors('utenteEdit.cognome')}" th:errors="*{utenteEdit.cognome}">Errore cognome</span><br/>
 			</div>
 			
 			<div class="mt-2">
 			<label class="form-label fs-4">Email: </label>
-			<input class="form-control" type="text" th:placeholder = "*{utente.email}" th:field="*{utenteEdit.email}"/>
+			<input class="form-control" type="text" th:placeholder = "*{utente.email}" th:field="*{utenteEdit.email}" required/>
 			<span th:if="${#fields.hasErrors('utenteEdit.email')}" th:errors="*{utenteEdit.email}">Errore email</span><br/>
-			</div>
-			
-			<div class="mt-2">
-			<label class="form-label fs-4">Username: </label>
-			<input class="form-control" type="text" th:placeholder = "*{utente.username}" th:field="*{utenteEdit.username}"/>
-			<span th:if="${#fields.hasErrors('utenteEdit.username')}" th:errors="*{utenteEdit.username}">Errore username</span><br/>
 			</div>
 			
 			<div class="my-2">
 			<label class="form-label fs-4">Data di nascita: </label>
-			<input class="form-control" type="date" th:field="*{utenteEdit.birthday}"/>
+			<input class="form-control" type="date" th:field="*{utenteEdit.birthday}" required/>
 			<span th:if="${#fields.hasErrors('utenteEdit.birthday')}" th:errors="*{utenteEdit.birthday}">Errore compleanno</span><br/>
 			</div>
 			

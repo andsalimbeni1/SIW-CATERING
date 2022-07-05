@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 
+import it.uniroma3.siw.catering.controller.validator.UtenteValidator;
 import it.uniroma3.siw.catering.model.Utente;
 import it.uniroma3.siw.catering.service.UtenteService;
 
@@ -20,6 +21,9 @@ public class AuthenticationController {
 
 	@Autowired
 	private UtenteService utenteService;
+	
+	@Autowired
+	private UtenteValidator utenteValidator;
 	
 	@GetMapping("/register")
 	public String registrazioneUtente(Model model) {
@@ -52,6 +56,8 @@ public class AuthenticationController {
 	
 	@PostMapping("/register")
 	public String nuovoUtente(@Valid @ModelAttribute("utente") Utente utente, BindingResult bindingResult, Model model) {
+		
+		this.utenteValidator.validate(utente, bindingResult);
 		
 		if(!bindingResult.hasErrors()) {
 			utenteService.saveUtente(utente);

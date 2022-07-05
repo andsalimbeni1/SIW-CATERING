@@ -2,7 +2,6 @@ package it.uniroma3.siw.catering.model.dto;
 
 import java.time.LocalDate;
 
-import javax.persistence.Column;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Size;
@@ -20,10 +19,6 @@ public class UtenteEditDto {
 	@NotBlank(message="Inserire un indirizzo e-mail")
 	@Email(message = "Inserire un indirizzo e-mail valido")
 	private String email;
-	
-	@NotBlank(message="Inserire un username")
-	@Column(unique = true)
-	private String username;
 	
 	@DateTimeFormat (pattern = "yyyy-MM-dd")
 	private LocalDate birthday;
@@ -51,15 +46,6 @@ public class UtenteEditDto {
 	public void setEmail(String email) {
 		this.email = email;
 	}
-
-	public String getUsername() {
-		return username;
-	}
-
-	public void setUsername(String username) {
-		this.username = username;
-	}
-
 	public LocalDate getBirthday() {
 		return birthday;
 	}

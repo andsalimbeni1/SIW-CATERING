@@ -48,7 +48,6 @@ public class UtenteService {
 	utente.setNome(utenteEditDto.getNome());
 	utente.setCognome(utenteEditDto.getCognome());
 	utente.setEmail(utenteEditDto.getEmail());
-	utente.setUsername(utenteEditDto.getUsername());
 	utente.setBirthday(utenteEditDto.getBirthday());
 	
 	return utenteRepository.save(utente);
@@ -56,5 +55,14 @@ public class UtenteService {
 	
 	public List<Utente> allUtenti(){
 		return(List<Utente>) utenteRepository.findAll();
+	}
+	
+	public boolean alreadyExists(Utente utente) {
+		Optional<Utente> list = this.utenteRepository.findByUsername(utente.getUsername());
+		if (list.isPresent()) {
+			return true;
+		} else {
+			return false;
+		}
 	}
 }

@@ -43,6 +43,9 @@
         <h1 class="border-bottom pb-3">Registrati</h1>
 
         <form action="#" th:action="@{/register}" method="post" th:object="${utente}">
+        <div th:if="${#fields.hasGlobalErrors()}">
+        	<p th:each="err : ${#fields.globalErrors()}" th:text="${err}">...</p>
+        </div>
 
             <div class="mt-2">
             <label class="form-label fs-4" >Nome:</label>
