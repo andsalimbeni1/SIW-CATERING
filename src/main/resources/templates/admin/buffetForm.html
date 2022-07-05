@@ -51,7 +51,7 @@
 			<div class="my-2">
 			<label class="form-label fs-4">Descrizione:</label>
 			<input class="form-control" type="text" placeholder = "Descrizione" th:field="*{descrizione}" required/>
-			<span th:if="${#fields.hasErrors('descrizione')}" th:errors="*{descrizione}">Errore cognome</span><br/>
+			<span th:if="${#fields.hasErrors('descrizione')}" th:errors="*{descrizione}">Errore descrizione</span><br/>
 			</div>
 			
 			<div class="my-2">
